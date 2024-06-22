@@ -18,7 +18,7 @@ class ElectronicsPage(Base):
     name_value_cart_1 = ''
 
 
-    # Locators
+# Locators
     open_category_filter = "//span[@class ='catalog-collections-selector-item__button-more-text']"
     photo_video_cameras_filter = "//span[contains(text(), 'Фото- и видеокамеры')]"
     range_slider_right_filter = "//button[@class='range-ctrl range-ctrl-right']"
@@ -41,7 +41,7 @@ class ElectronicsPage(Base):
     name_product_cart_1 = "//span[@class = 'title']"
 
 
-    # Getters
+# Getters
     def get_open_category_filter(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.open_category_filter)))
 
@@ -188,7 +188,6 @@ class ElectronicsPage(Base):
 
 
 # Methods
-
     """Метод проверки нахождения в разделе 'Электроника'"""
     def check_open_catalog_electronica(self):
         time.sleep(3)
@@ -218,7 +217,7 @@ class ElectronicsPage(Base):
         time.sleep(3)
 
 
-    """Метод для фильтрации по бренду 'Кодак'"""
+    """Метод для фильтрации по бренду 'SmartBuy'"""
     def choose_brand_smart_buy_filter(self):
         self.click_show_more_brand()
         time.sleep(3)
@@ -237,7 +236,6 @@ class ElectronicsPage(Base):
 
     """Метод добавления товара в корзину, проверки количества товара в корзине, цены в товара в каталоге и корзине"""
     def choose_product_1(self):
-        time.sleep(5)
         self.get_screenshot()
         self.click_buy_button(self.get_buy_button_product_1())
         self.assert_goods_count(self.get_goods_count_cart_icon(), "1")

@@ -1,22 +1,16 @@
 import time
-
 from selenium.webdriver.support import expected_conditions as EC
-
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
 from base.base_class import Base
 
-class ChooseSupermarketPage(Base):
 
+class ChooseSupermarketPage(Base):
 
     def __init__(self, driver):
         self.driver = driver
         self.address = "Москва, Авиамоторная улица, 12"
         super().__init__(driver)
-
-
 
 # Locators
 
@@ -26,7 +20,6 @@ class ChooseSupermarketPage(Base):
     confirm_address_button = "//button[@class='profile-address-create__search-btn btn sm']"
     supermarket_word = "//h1[contains(text(), 'Супермаркет')]"
     selected_delivery_address = "//span[@class='header-user-address-button__label']"
-
 
 # Getters
     def get_auchan(self):
@@ -65,15 +58,14 @@ class ChooseSupermarketPage(Base):
         print("Адрес подтвержден")
 
 
-
 # Methods
 
-    """"""
+    """Выбрать супермаркет АШАН, ввести адрес доставки"""
     def enter_auchan(self):
         self.get_current_url()
         time.sleep(5)
         self.assert_url("https://megamarket.ru/supermarket/")  # Проверка перехода в раздел "Супермаркет" по URL
-        self.assert_word(self.get_supermarket_word(),"Супермаркет")  # Проверка перехода в раздел "Супермаркет" по названию раздела
+        self.assert_word(self.get_supermarket_word(), "Супермаркет")  # Проверка перехода в раздел "Супермаркет" по названию раздела
         self.get_screenshot()
         self.click_auchan()
         time.sleep(3)
@@ -82,6 +74,3 @@ class ChooseSupermarketPage(Base):
         self.click_confirm_address_button()
         self.assert_word(self.get_selected_delivery_address(), self.address)
         self.click_auchan()
-
-
-

@@ -44,7 +44,7 @@ def test_buy_product():
     ep.choose_photo_video_cameras_filter() # Отфильтровать товар по "фото -видео камеры"
     ep.choose_click_range_slider_right_filter() # Отфильтровать по цене с помощью ползунка
     ep.choose_click_high_rating_filter() # Отфильтровать по "Высокий рейтинг"
-    ep.choose_brand_smart_buy_filter() # Отфильтровать по бренду "Кодак"
+    ep.choose_brand_smart_buy_filter() # Отфильтровать по бренду "SmartBuy"
     ep.choose_sort_cheaper() # Отфильтровать по "Сначала дешевле"
     ep.choose_product_1() # Добавить товар в корзину, проверить корректность добавление товара в корзину
 

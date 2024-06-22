@@ -1,12 +1,8 @@
-import time
-
 from selenium.webdriver.support import expected_conditions as EC
-
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
 from base.base_class import Base
+
 
 class MainPage(Base):
 
@@ -21,16 +17,12 @@ class MainPage(Base):
     catalog = "//div[contains(@class, 'header-catalog-menu__wrapper')]"
     supermarket = "//a[@href='/supermarket/']"
 
-
 # Getters
     def get_catalog(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.catalog)))
 
     def get_supermarket(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.supermarket)))
-
-
-
 
 # Actions
     def click_catalog_button(self):
@@ -40,7 +32,6 @@ class MainPage(Base):
     def click_supermarket_button(self):
         self.get_supermarket().click()
         print("Вход в раздел 'Супермаркет'")
-
 
 
 # Methods
