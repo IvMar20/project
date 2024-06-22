@@ -1,17 +1,12 @@
 import time
-
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
 from base.base_class import Base
 
 
-
 class ElectronicsPage(Base):
-
 
     def __init__(self, driver):
         self.driver = driver
@@ -24,7 +19,6 @@ class ElectronicsPage(Base):
 
 
     # Locators
-
     open_category_filter = "//span[@class ='catalog-collections-selector-item__button-more-text']"
     photo_video_cameras_filter = "//span[contains(text(), 'Фото- и видеокамеры')]"
     range_slider_right_filter = "//button[@class='range-ctrl range-ctrl-right']"

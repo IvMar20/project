@@ -4,9 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.common.exceptions import TimeoutException
 from base.base_class import Base
-from pages.electronics_page import ElectronicsPage
+
 
 
 
@@ -27,7 +26,6 @@ class CartPage(Base):
     price_product_1 = "//div[@class='good__bottom']//span[@class='price']"
     total_price = "//span[@class ='cart-summary-redesign__total-price-value']"
     checkout_button = "//span[contains(text(), 'Оформить заказ')]"
-    product_amount = "//div[@class='cart-summary-redesign__common-info-with-sub-title']"
 
 
  # Getters
@@ -41,8 +39,6 @@ class CartPage(Base):
     def get_checkout_button(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.checkout_button)))
 
-    def get_product_amount(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.product_amount)))
 
     def get_price_product_1(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_product_1)))
@@ -68,9 +64,6 @@ class CartPage(Base):
         print("Оформить заказ")
 
 
-    def assert_product_amount(self):
-        self.get_product_amount()
-        print(self.get_product_amount().text)
 
 
 
@@ -86,7 +79,6 @@ class CartPage(Base):
 
     def checkout(self):
         time.sleep(5)
-        self.assert_product_amount()
         self.click_checkout_button()
         time.sleep(3)
         self.get_screenshot()
