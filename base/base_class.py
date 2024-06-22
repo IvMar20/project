@@ -1,16 +1,10 @@
 import datetime
 
-from selenium.webdriver.support import expected_conditions as EC
-
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-
 
 class Base:
     def __init__(self, driver):
         self.driver = driver
         # super().__init__(driver)
-
 
 
     """Метод для проверки текущей url"""
@@ -52,7 +46,6 @@ class Base:
         print(f"Отображение количества товара в корзине корректно: {amount}")
 
 
-
     """Метод для проверки корректности цены товара в корзине"""
     def assert_price(self, price_before_cart, price_cart):
         assert price_before_cart == price_cart
@@ -62,7 +55,6 @@ class Base:
     def assert_name(self, name_before_cart, name_cart):
         assert name_before_cart == name_cart
         print(f"Наименования в каталоге и корзине совпадают: наименование в каталоге {name_before_cart}, наименование в корзине {name_cart}")
-
 
 
     """Метод для сохранения скриншота"""

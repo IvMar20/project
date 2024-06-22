@@ -43,8 +43,6 @@ class MainPage(Base):
         self.get_screenshot()
         self.click_catalog_button()
         self.click_supermarket_button()
-        # time.sleep(3)
-        # self.driver.close()
 
 
 
