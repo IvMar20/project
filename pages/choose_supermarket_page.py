@@ -3,9 +3,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
+from utilities.logger import Logger
+import allure
 
 
-class ChooseSupermarketPage(Base):
+class ChooseSupermarketPageA(Base):
 
     def __init__(self, driver):
         self.driver = driver
@@ -14,12 +16,12 @@ class ChooseSupermarketPage(Base):
 
 # Locators
 
-    auchan = "//span[@title='АШАН - СберМаркет']"
-    address_field = "//input[@placeholder='Введите адрес']"
+    auchan = "//div[@class='supermarket__content'][1]//span[contains(text(), 'АШАН - Купер')]"
+    address_field = "//input[@placeholder='Город, улица, номер дома']"
     choose_address_list = "//a[@href='#']"
     confirm_address_button = "//button[@class='profile-address-create__search-btn btn sm']"
     supermarket_word = "//h1[contains(text(), 'Супермаркет')]"
-    selected_delivery_address = "//span[@class='header-user-address-button__label']"
+    selected_delivery_address_a = "//span[@class='header-user-address-button__label']"
 
 # Getters
     def get_auchan(self):
@@ -38,7 +40,7 @@ class ChooseSupermarketPage(Base):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.supermarket_word)))
 
     def get_selected_delivery_address(self):
-        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.selected_delivery_address)))
+        return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.selected_delivery_address_a)))
 
 # Actions
     def click_auchan(self):
@@ -62,15 +64,25 @@ class ChooseSupermarketPage(Base):
 
     """Выбрать супермаркет АШАН, ввести адрес доставки"""
     def enter_auchan(self):
-        self.get_current_url()
-        time.sleep(5)
-        self.assert_url("https://megamarket.ru/supermarket/")  # Проверка перехода в раздел "Супермаркет" по URL
-        self.assert_word(self.get_supermarket_word(), "Супермаркет")  # Проверка перехода в раздел "Супермаркет" по названию раздела
-        self.get_screenshot()
-        self.click_auchan()
-        time.sleep(3)
-        self.input_address_field(self.address)
-        self.click_choose_address_list()
-        self.click_confirm_address_button()
-        self.assert_word(self.get_selected_delivery_address(), self.address)
-        self.click_auchan()
+        with allure.step("Enter auchan"):
+            Logger.add_start_step(method='enter_auchan')
+            self.get_current_url()
+            time.sleep(5)
+            self.assert_url("https://megamarket.ru/supermarket/")  # Проверка перехода в раздел "Супермаркет" по URL
+            self.assert_word(self.get_supermarket_word(), "Супермаркет")  # Проверка перехода в раздел "Супермаркет" по названию раздела
+            self.get_screenshot()
+            self.click_auchan()
+            time.sleep(3)
+            self.input_address_field(self.address)
+            self.get_screenshot()
+            self.click_choose_address_list()
+            self.click_confirm_address_button()
+            self.assert_word(self.get_selected_delivery_address(), self.address)
+            self.click_auchan()
+            self.get_screenshot()
+            Logger.add_end_step(url=self.driver.current_url, method='enter_auchan')
+
+
+
+
+

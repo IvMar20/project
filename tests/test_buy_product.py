@@ -1,15 +1,17 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+
+
 from pages.cart_page import CartPage
 from pages.catalog_page import CatalogPage
-from pages.choose_supermarket_page import ChooseSupermarketPage
-from pages.electronics_page import ElectronicsPage
-from pages.main_page import MainPage
+from pages.choose_supermarket_page import ChooseSupermarketPageA
+from pages.electronics_page import ElectronicsPageA
+from pages.main_page import MainPageA
+import allure
 
 
+@allure.description("Test buy product")
 def test_buy_product():
     options = webdriver.ChromeOptions()
     options = Options()
@@ -18,18 +20,22 @@ def test_buy_product():
     options.page_load_strategy = 'eager'
     options.add_argument("--disable-notifications")
     g = Service('C:\\Users\\HUAWEI\\PycharmProjects\\resource\\chromedriver.exe', chrome_options=options)
-    driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
+    #service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(options=options, service=g)
 
-    main_page = MainPage(driver)
+    url = "https://megamarket.ru/"
+
+
+    main_page = MainPageA(driver)
     main_page.enter_supermarket()  # Отрыть раздел 'Супермаркет'
 
-    csp = ChooseSupermarketPage(driver)
+    csp = ChooseSupermarketPageA(driver)
     csp.enter_auchan()  # Выбрать магазин 'Ашан'
 
     cp = CatalogPage(driver)
     cp.click_electronics()  # Выбрать раздел 'Электроника'
 
-    ep = ElectronicsPage(driver)
+    ep = ElectronicsPageA(driver)
     ep.check_open_catalog_electronica()  # Проверить, что произошел переход в раздел "Электроника"
     ep.choose_photo_video_cameras_filter()  # Отфильтровать товар по "фото -видео камеры"
     ep.choose_click_range_slider_right_filter()  # Отфильтровать по цене с помощью ползунка
@@ -41,6 +47,8 @@ def test_buy_product():
     crtp = CartPage(driver)
     crtp.add_product_1()  # Увеличить количество товара до суммы доставки, перейти к оформлению заказа
     crtp.checkout()
+
+
 
 
 

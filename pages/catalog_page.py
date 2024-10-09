@@ -2,6 +2,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from base.base_class import Base
+from utilities.logger import Logger
+import allure
 
 
 class CatalogPage(Base):
@@ -24,9 +26,11 @@ class CatalogPage(Base):
 
     # Methods
     """Вход в каталог 'Электроника'"""
-
     def choose_catalog(self):
-        self.get_current_url()
-        self.assert_url("https://megamarket.ru/catalog/cnc/#?store=270618")
-        self.get_screenshot()
-        self.click_electronics()
+        with allure.step("Choose catalog"):
+            Logger.add_start_step(method='choose_catalog')
+            self.get_current_url()
+            self.assert_url("https://megamarket.ru/catalog/cnc/#?store=270618")
+            self.click_electronics()
+            self.get_screenshot()
+            Logger.add_end_step(url=self.driver.current_url, method='choose_catalog')

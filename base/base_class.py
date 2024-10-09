@@ -1,7 +1,16 @@
 import datetime
 
+from selenium.common import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
-class Base:
+
+
+
+
+class Base():
+
     def __init__(self, driver):
         self.driver = driver
         # super().__init__(driver)
@@ -54,7 +63,7 @@ class Base:
     """Метод для проверки корректности наименования товара в корзине"""
     def assert_name(self, name_before_cart, name_cart):
         assert name_before_cart == name_cart
-        print(f"Наименования в каталоге и корзине совпадают: наименование в каталоге {name_before_cart}, наименование в корзине {name_cart}")
+        print(f"Наименования в каталоге и корзине совпадают: наименование в каталоге - {name_before_cart}, наименование в корзине - {name_cart}")
 
 
     """Метод для сохранения скриншота"""
@@ -63,6 +72,22 @@ class Base:
         screenshot = "screenshot " + str(now_date) + '.png'
         self.driver.save_screenshot("C:\\Users\\HUAWEI\\PycharmProjects\\mailProject\\pytest_megamarket\\screen\\" + screenshot)
         print(f"Скрин {screenshot}")
+
+
+    def scroll_to(self, driver, element):
+        driver.execute_script("arguments[0].scrollIntoView();", element)
+
+
+
+    """Метод для определения версии при A/B тестировании"""
+    def A_B_test(self, get_locator, result):
+        # try:
+        A_test = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.XPATH, get_locator)))
+        if A_test.text == result:
+            return "A"
+        # except TimeoutException:
+        #         return "B"
+
 
 
 
