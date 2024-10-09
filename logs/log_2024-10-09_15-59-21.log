@@ -1,0 +1,105 @@
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 15:59:22.804475
+Start name method: enter_supermarket
+
+End time: 2024-10-09 15:59:29.552068
+End name method: enter_supermarket
+URL: https://megamarket.ru/supermarket/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 15:59:29.552068
+Start name method: enter_auchan
+
+End time: 2024-10-09 15:59:43.448215
+End name method: enter_auchan
+URL: https://megamarket.ru/catalog/cnc/#?store=270618
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 15:59:46.600694
+Start name method: check_open_catalog_electronica
+
+End time: 2024-10-09 15:59:52.657563
+End name method: check_open_catalog_electronica
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12011&store=270618
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 15:59:52.658580
+Start name method: choose_photo_video_cameras_filter
+
+End time: 2024-10-09 16:00:01.033401
+End name method: choose_photo_video_cameras_filter
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12020&store=270618
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:01.034399
+Start name method: choose_click_range_slider_right_filter
+
+End time: 2024-10-09 16:00:03.876486
+End name method: choose_click_range_slider_right_filter
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12020&store=270618&filters=%7B%2288C83F68482F447C9F4E401955196697%22%3A%7B%22max%22%3A3499%7D%7D
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:03.876486
+Start name method: choose_click_high_rating_filter
+
+End time: 2024-10-09 16:00:07.168671
+End name method: choose_click_high_rating_filter
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12020&store=270618&filters=%7B%2288C83F68482F447C9F4E401955196697%22%3A%7B%22max%22%3A3499%7D%2C%22A03364050801C25CD0A856C734F74FE9%22%3A%5B%221%22%5D%7D
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:07.169662
+Start name method: choose_brand_smart_buy_filter
+
+End time: 2024-10-09 16:00:10.590220
+End name method: choose_brand_smart_buy_filter
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12020&store=270618&filters=%7B%2288C83F68482F447C9F4E401955196697%22%3A%7B%22max%22%3A3499%7D%2C%22A03364050801C25CD0A856C734F74FE9%22%3A%5B%221%22%5D%2C%222B0B1FF4756D49CF84B094522D57ED3D%22%3A%5B%22SmartBuy%22%5D%7D
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:10.591224
+Start name method: choose_sort_cheaper
+
+End time: 2024-10-09 16:00:15.032181
+End name method: choose_sort_cheaper
+URL: https://megamarket.ru/catalog/cnc/#?cat=X12020&store=270618&filters=%7B%2288C83F68482F447C9F4E401955196697%22%3A%7B%22max%22%3A3499%7D%2C%22A03364050801C25CD0A856C734F74FE9%22%3A%5B%221%22%5D%2C%222B0B1FF4756D49CF84B094522D57ED3D%22%3A%5B%22SmartBuy%22%5D%7D&sort=1
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:15.032181
+Start name method: choose_product_1
+
+End time: 2024-10-09 16:00:20.703700
+End name method: choose_product_1
+URL: https://megamarket.ru/multicart/
+
+-----
+
+-----
+Test: tests/test_buy_product.py::test_buy_product (call)
+Start time: 2024-10-09 16:00:20.703700
+Start name method: add_product_1
+
